@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b86cfwel3nth7"]
+
+[ext_resource type="Shader" uid="uid://dvcks3stm7pxp" path="res://assets/temp/terraintest.gdshader" id="1_cm6e2"]
+[ext_resource type="Texture2D" uid="uid://c2cddpoegl3oa" path="res://assets/temp/rock/Rock030_1K-PNG_Color.png" id="3_a2bnr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cm6e2")
+shader_parameter/source_texture = ExtResource("3_a2bnr")
+shader_parameter/tile_scale = 1.0
+shader_parameter/rot_strength = 0.5
+shader_parameter/contrast_adjust = 0.75

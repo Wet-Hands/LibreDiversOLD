@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dtvqbdrpgek4s"]
+
+[ext_resource type="Script" uid="uid://bia7fyjy6d2dq" path="res://scenes/world/world.gd" id="1_dphjl"]
+[ext_resource type="Material" uid="uid://b86cfwel3nth7" path="res://scenes/world/new_shader_material.tres" id="2_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://bxneqfa86u48i" path="res://scenes/player/player.tscn" id="2_sl2e5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dphjl"]
+noise_type = 0
+frequency = 0.001
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1fp7r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6m72w"]
+sky_material = SubResource("ProceduralSkyMaterial_1fp7r")
+
+[sub_resource type="Environment" id="Environment_v5dby"]
+background_mode = 2
+sky = SubResource("Sky_6m72w")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fp7r"]
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node3D" unique_id=1807822185]
+script = ExtResource("1_dphjl")
+world_size = 3000.0
+terrain_resolution = 256
+noise = SubResource("FastNoiseLite_dphjl")
+height = 128.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=576174141]
+environment = SubResource("Environment_v5dby")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1798199326]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=732961715]
+material_override = ExtResource("2_1fp7r")
+
+[node name="PlayerController" parent="." unique_id=661167865 instance=ExtResource("2_sl2e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1520724, 0)
+
+[node name="Label" type="Label" parent="." unique_id=1510966997]
+offset_right = 307.0
+offset_bottom = 88.0
+label_settings = SubResource("LabelSettings_1fp7r")

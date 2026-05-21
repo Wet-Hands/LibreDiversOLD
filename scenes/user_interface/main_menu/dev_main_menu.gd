@@ -7,6 +7,8 @@ extends Control
 @export var container_container : Container
 @export var main_container : Container
 
+@export var terrain_test : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_menu_to_container(main_container)
@@ -20,7 +22,7 @@ func _ready() -> void:
 func on_button_pressed(button : Button) -> void:
 	match button.name:
 		"HostButton":
-			pass
+			get_tree().change_scene_to_packed(terrain_test)
 		"JoinButton":
 			pass
 		"SettingsButton":

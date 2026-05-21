@@ -1,13 +1,29 @@
 [gd_scene format=3 uid="uid://bxneqfa86u48i"]
 
+[ext_resource type="Script" uid="uid://cfgrw8ny8s04t" path="res://scenes/player/player.gd" id="1_8afob"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
 [node name="PlayerController" type="CharacterBody3D" unique_id=661167865]
+script = ExtResource("1_8afob")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=990170844]
 mesh = SubResource("CapsuleMesh_x7p2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=953297293]
 shape = SubResource("CapsuleShape3D_x7p2l")
+
+[node name="CamController" type="Node3D" parent="." unique_id=1161269700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamController" unique_id=1868227627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CamController/SpringArm3D" unique_id=561606853]
+
+[node name="Label" type="Label" parent="." unique_id=1478007662]
+offset_right = 40.0
+offset_bottom = 23.0
