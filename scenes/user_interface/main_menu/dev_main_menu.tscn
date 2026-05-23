@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://d2c1qdnj1mpmy" path="res://scenes/user_interface/main_menu/main.theme" id="1_w4ck6"]
 [ext_resource type="Script" uid="uid://br1qsfs2d6to0" path="res://scenes/user_interface/main_menu/dev_main_menu.gd" id="2_idasq"]
+[ext_resource type="PackedScene" uid="uid://dtvqbdrpgek4s" path="res://scenes/world/world.tscn" id="3_oq3aj"]
 
 [node name="MainMenu" type="Control" unique_id=181704356 node_paths=PackedStringArray("container_container", "main_container")]
 layout_mode = 3
@@ -15,6 +16,7 @@ script = ExtResource("2_idasq")
 debug = true
 container_container = NodePath("PanelContainer/MarginContainer/ContainerContainer")
 main_container = NodePath("PanelContainer/MarginContainer/ContainerContainer/MainContainer")
+terrain_test = ExtResource("3_oq3aj")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1271675554]
 layout_mode = 1
@@ -57,18 +59,21 @@ layout_mode = 2
 
 [node name="HostButton" type="Button" parent="PanelContainer/MarginContainer/ContainerContainer/MainContainer" unique_id=2129142620]
 layout_mode = 2
-text = "Host Game"
+text = "Load Terrain Test"
 
 [node name="JoinButton" type="Button" parent="PanelContainer/MarginContainer/ContainerContainer/MainContainer" unique_id=1564071022]
 layout_mode = 2
+disabled = true
 text = "Join Game"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/ContainerContainer/MainContainer" unique_id=990754056]
 layout_mode = 2
+disabled = true
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/ContainerContainer/MainContainer" unique_id=348602141]
 layout_mode = 2
+disabled = true
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/ContainerContainer/MainContainer" unique_id=419595321]
