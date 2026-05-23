@@ -1,9 +1,7 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 func _physics_process(delta: float) -> void:
 	$Label.text = "FPS: " + str(Engine.get_frames_per_second() )

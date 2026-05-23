@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bxneqfa86u48i"]
 
 [ext_resource type="Script" uid="uid://cfgrw8ny8s04t" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://b16abmgo83185" path="res://scripts/components/state/state_machine.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://coqftbip5t1xf" path="res://scripts/components/state/base_state.gd" id="3_lvxji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -27,3 +29,13 @@ spring_length = 4.0
 [node name="Label" type="Label" parent="." unique_id=1478007662]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="MovementStateMachine" type="Node" parent="." unique_id=742343792 node_paths=PackedStringArray("CURRENT_STATE", "target")]
+script = ExtResource("2_gmlin")
+CURRENT_STATE = NodePath("IdleState")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://b16abmgo83185"
+
+[node name="IdleState" type="Node" parent="MovementStateMachine" unique_id=1049112514]
+script = ExtResource("3_lvxji")
+metadata/_custom_type_script = "uid://coqftbip5t1xf"
